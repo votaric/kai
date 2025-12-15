@@ -35,6 +35,7 @@
 
     <script>
         // 1. Your Apps Script Deployment URL
+        // IMPT: This should be the deployment URL for your 'Confirm.gs' (Project 2)
         const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzq1cRHT9JTlOyvQe39oAQGha4HvYRqsmpNpPnqCXYY5r0qVReb58zm5JSmayihKjZT/exec";
 
         // 2. Get the parameters from the Browser URL (e.g. ?id=123)
@@ -48,9 +49,6 @@
         if (queryString) {
             // If deployed URL already has '?', assume we append with '&', otherwise '?'
             const separator = APP_SCRIPT_URL.includes('?') ? '&' : '?';
-            // Remove the leading '?' from queryString as we handle it with separator logic if simpler, 
-            // but standard is just BASE + queryString if BASE has no params.
-            // safest way:
             frame.src = APP_SCRIPT_URL + queryString;
         } else {
             frame.src = APP_SCRIPT_URL; // Load without ID (will likely show Access Denied page)
